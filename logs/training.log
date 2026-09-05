@@ -1,0 +1,22 @@
+2026-09-06 02:09:30,675 | INFO | === Starting Part 2 model training pipeline ===
+2026-09-06 02:09:54,268 | INFO | === Starting Part 2 model training pipeline ===
+2026-09-06 02:09:55,266 | INFO | Loaded 1044 rows from /Users/ankit/Downloads/mlops/data/analytics/student_master.csv (sha256:1a7174cb5a8c1cc7)
+2026-09-06 02:09:55,281 | INFO | Split sizes -> train=730, val=157, test=157
+2026-09-06 02:10:02,348 | INFO | [logistic_regression] val_roc_auc=0.9749 val_f1=0.8600
+2026-09-06 02:10:05,004 | INFO | [random_forest] val_roc_auc=0.9805 val_f1=0.8824
+2026-09-06 02:10:24,006 | INFO | === Starting Part 2 model training pipeline ===
+2026-09-06 02:10:24,539 | INFO | Loaded 1044 rows from /Users/ankit/Downloads/mlops/data/analytics/student_master.csv (sha256:1a7174cb5a8c1cc7)
+2026-09-06 02:10:24,550 | INFO | Split sizes -> train=730, val=157, test=157
+2026-09-06 02:10:27,883 | INFO | [logistic_regression] val_roc_auc=0.9749 val_f1=0.8600
+2026-09-06 02:10:30,502 | INFO | [random_forest] val_roc_auc=0.9805 val_f1=0.8824
+2026-09-06 02:10:34,207 | INFO | [xgboost] val_roc_auc=0.9654 val_f1=0.8478
+2026-09-06 02:10:34,209 | INFO | Best model: random_forest (val_roc_auc=0.9805)
+2026-09-06 02:10:34,232 | INFO | Test-set metrics for random_forest: {'accuracy': 0.9299363057324841, 'precision': 0.8333333333333334, 'recall': 0.9574468085106383, 'f1_score': 0.8910891089108911, 'roc_auc': 0.9914893617021276}
+2026-09-06 02:10:34,263 | INFO | Registered model 'student_dropout_risk_model' version 1
+2026-09-06 02:10:34,267 | INFO | Aliased version 1 as 'production'
+2026-09-06 02:10:34,294 | INFO | 
+              model  accuracy  precision   recall  f1_score  roc_auc
+      random_forest  0.923567   0.818182 0.957447  0.882353 0.980464
+logistic_regression  0.910828   0.811321 0.914894  0.860000 0.974855
+            xgboost  0.910828   0.866667 0.829787  0.847826 0.965377
+2026-09-06 02:10:34,294 | INFO | === Training complete. Best model exported to /Users/ankit/Downloads/mlops/ml/models/best_model.joblib ===

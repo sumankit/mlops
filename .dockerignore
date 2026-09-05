@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+*.pyc
+data/raw/*.zip
+data/raw/source_extract/
+mlruns/
+mlflow.db
+.git/
+.dvc/
+docs/screenshots/
+logs/
