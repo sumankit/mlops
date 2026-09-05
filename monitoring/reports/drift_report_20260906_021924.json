@@ -1,0 +1,51 @@
+{
+  "generated_at": "2026-09-06T02:19:24.370005",
+  "live_requests_analyzed": 61,
+  "feature_drift": {
+    "attendance_percentage": {
+      "psi": 0.0827,
+      "status": "STABLE"
+    },
+    "avg_internal_marks": {
+      "psi": 0.1417,
+      "status": "MODERATE_DRIFT"
+    },
+    "G1": {
+      "psi": 0.1008,
+      "status": "MODERATE_DRIFT"
+    },
+    "G2": {
+      "psi": 0.0804,
+      "status": "STABLE"
+    },
+    "absences": {
+      "psi": 0.0881,
+      "status": "STABLE"
+    },
+    "failures": {
+      "psi": 0.0002,
+      "status": "STABLE"
+    }
+  },
+  "class_distribution": {
+    "reference_high_risk_rate": 0.3008,
+    "live_high_risk_rate": 0.3607,
+    "absolute_shift": 0.0599,
+    "status": "OK"
+  },
+  "latency_and_reliability": {
+    "requests_logged": 61,
+    "avg_latency_ms": 6.93,
+    "p95_latency_ms": 6.88,
+    "status": "OK"
+  },
+  "input_data_quality": {
+    "out_of_range_inputs": 0,
+    "status": "OK"
+  },
+  "alerts": [
+    "Feature drift on 'avg_internal_marks': PSI=0.1417 (MODERATE_DRIFT)",
+    "Feature drift on 'G1': PSI=0.1008 (MODERATE_DRIFT)"
+  ],
+  "retraining_recommended": true
+}

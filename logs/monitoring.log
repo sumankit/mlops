@@ -1,0 +1,6 @@
+2026-09-06 02:19:24,365 | INFO | === Starting monitoring run ===
+2026-09-06 02:19:24,376 | INFO | Report written to /Users/ankit/Downloads/mlops/monitoring/reports/drift_report_20260906_021924.json
+2026-09-06 02:19:24,376 | WARNING | 2 alert(s) raised -- retraining review recommended:
+2026-09-06 02:19:24,376 | WARNING |   - Feature drift on 'avg_internal_marks': PSI=0.1417 (MODERATE_DRIFT)
+2026-09-06 02:19:24,376 | WARNING |   - Feature drift on 'G1': PSI=0.1008 (MODERATE_DRIFT)
+2026-09-06 02:19:24,376 | INFO | === Monitoring run complete ===

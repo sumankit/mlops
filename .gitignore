@@ -1,0 +1,12 @@
+venv/
+__pycache__/
+*.pyc
+.env
+db/*.db
+data/raw/*.zip
+data/raw/source_extract/
+.DS_Store
+mlruns/
+mlflow.db
+.dvc/cache/
+.dvc/tmp/
