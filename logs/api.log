@@ -67,3 +67,8 @@ INFO:     127.0.0.1:50642 - "POST /predict HTTP/1.1" 200 OK
 INFO:     127.0.0.1:50644 - "POST /predict HTTP/1.1" 200 OK
 INFO:     127.0.0.1:50658 - "GET /docs HTTP/1.1" 200 OK
 INFO:     127.0.0.1:50658 - "GET /openapi.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56317 - "GET /health HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [24385]

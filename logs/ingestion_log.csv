@@ -1,3 +1,7 @@
 extraction_timestamp,source_name,source_path,status,row_count,error
 2026-09-05T23:46:49.502720,UCI_student_performance_mathematics,/Users/ankit/Downloads/mlops/data/raw/student_performance_uci/student-mat.csv,SUCCESS,395,
 2026-09-05T23:46:49.517663,UCI_student_performance_portuguese,/Users/ankit/Downloads/mlops/data/raw/student_performance_uci/student-por.csv,SUCCESS,649,
+2026-09-07T02:28:45.533264,UCI_student_performance_mathematics,/Users/ankit/Downloads/mlops/data/raw/student_performance_uci/student-mat.csv,SUCCESS,395,
+2026-09-07T02:28:45.550911,UCI_student_performance_portuguese,/Users/ankit/Downloads/mlops/data/raw/student_performance_uci/student-por.csv,SUCCESS,649,
+2026-09-07T02:31:31.721681,UCI_student_performance_mathematics,/Users/ankit/Downloads/mlops/data/raw/student_performance_uci/student-mat.csv,SUCCESS,395,
+2026-09-07T02:31:31.727861,UCI_student_performance_portuguese,/Users/ankit/Downloads/mlops/data/raw/student_performance_uci/student-por.csv,SUCCESS,649,

@@ -1,10 +1,10 @@
 {
   "model_name": "random_forest",
-  "mlflow_run_id": "af7771cec97142f9adf4baf6b78b3ae7",
+  "mlflow_run_id": "6fbcd9cbdc2a472888902665a040dc45",
   "registered_model_name": "student_dropout_risk_model",
-  "registered_version": 1,
-  "dataset_checksum": "1a7174cb5a8c1cc7",
-  "trained_at": "2026-09-06T02:10:34.291413",
+  "registered_version": 2,
+  "dataset_checksum": "bd441bf9bfb25b9d",
+  "trained_at": "2026-09-07T02:32:07.348194",
   "feature_columns": [
     "age",
     "Medu",

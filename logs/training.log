@@ -20,3 +20,19 @@
 logistic_regression  0.910828   0.811321 0.914894  0.860000 0.974855
             xgboost  0.910828   0.866667 0.829787  0.847826 0.965377
 2026-09-06 02:10:34,294 | INFO | === Training complete. Best model exported to /Users/ankit/Downloads/mlops/ml/models/best_model.joblib ===
+2026-09-07 02:31:56,911 | INFO | === Starting Part 2 model training pipeline ===
+2026-09-07 02:31:57,299 | INFO | Loaded 1044 rows from /Users/ankit/Downloads/mlops/data/analytics/student_master.csv (sha256:bd441bf9bfb25b9d)
+2026-09-07 02:31:57,311 | INFO | Split sizes -> train=730, val=157, test=157
+2026-09-07 02:32:00,847 | INFO | [logistic_regression] val_roc_auc=0.9749 val_f1=0.8600
+2026-09-07 02:32:03,541 | INFO | [random_forest] val_roc_auc=0.9805 val_f1=0.8824
+2026-09-07 02:32:07,258 | INFO | [xgboost] val_roc_auc=0.9654 val_f1=0.8478
+2026-09-07 02:32:07,259 | INFO | Best model: random_forest (val_roc_auc=0.9805)
+2026-09-07 02:32:07,282 | INFO | Test-set metrics for random_forest: {'accuracy': 0.9299363057324841, 'precision': 0.8333333333333334, 'recall': 0.9574468085106383, 'f1_score': 0.8910891089108911, 'roc_auc': 0.9914893617021276}
+2026-09-07 02:32:07,320 | INFO | Registered model 'student_dropout_risk_model' version 2
+2026-09-07 02:32:07,322 | INFO | Aliased version 2 as 'production'
+2026-09-07 02:32:07,350 | INFO | 
+              model  accuracy  precision   recall  f1_score  roc_auc
+      random_forest  0.923567   0.818182 0.957447  0.882353 0.980464
+logistic_regression  0.910828   0.811321 0.914894  0.860000 0.974855
+            xgboost  0.910828   0.866667 0.829787  0.847826 0.965377
+2026-09-07 02:32:07,350 | INFO | === Training complete. Best model exported to /Users/ankit/Downloads/mlops/ml/models/best_model.joblib ===
