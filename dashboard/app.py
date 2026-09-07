@@ -46,17 +46,15 @@ df["department"] = df["school"].map(DEPARTMENT_LABELS).fillna(df["school"])
 st.title("🎓 Student Performance & Dropout-Risk Dashboard")
 st.caption("Source: UCI Student Performance Dataset (Cortez, 2008) — Mathematics & Portuguese subjects")
 
-# --- Sidebar filters (dropdowns: click, then pick one option) ----------
+# --- Sidebar filters (dropdown: click to open, pick one or more) -------
 st.sidebar.header("Filters")
-
-ALL_OPTION = "All"
 
 
 def dropdown_filter(label, options):
-    """A single-select dropdown with an 'All' option prepended, instead of a
-    multiselect that shows every choice as a chip."""
-    choice = st.sidebar.selectbox(label, options=[ALL_OPTION] + list(options))
-    return list(options) if choice == ALL_OPTION else [choice]
+    """A multi-select dropdown -- collapsed until clicked, then lets you
+    tick any number of options (defaults to all selected)."""
+    options = list(options)
+    return st.sidebar.multiselect(label, options=options, default=options)
 
 subjects = dropdown_filter("Subject", sorted(df["subject"].unique()))
 departments = dropdown_filter("Department (School)", sorted(df["department"].unique()))
