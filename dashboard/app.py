@@ -46,16 +46,22 @@ df["department"] = df["school"].map(DEPARTMENT_LABELS).fillna(df["school"])
 st.title("🎓 Student Performance & Dropout-Risk Dashboard")
 st.caption("Source: UCI Student Performance Dataset (Cortez, 2008) — Mathematics & Portuguese subjects")
 
-# --- Sidebar filters ---------------------------------------------------
+# --- Sidebar filters (dropdowns: click, then pick one option) ----------
 st.sidebar.header("Filters")
-subjects = st.sidebar.multiselect("Subject", options=df["subject"].unique(), default=list(df["subject"].unique()))
-departments = st.sidebar.multiselect(
-    "Department (School)", options=df["department"].unique(), default=list(df["department"].unique())
-)
-semesters = st.sidebar.multiselect(
-    "Semester", options=list(SEMESTER_LABELS.values()), default=list(SEMESTER_LABELS.values())
-)
-risk_filter = st.sidebar.multiselect("Risk level", options=df["risk_flag"].unique(), default=list(df["risk_flag"].unique()))
+
+ALL_OPTION = "All"
+
+
+def dropdown_filter(label, options):
+    """A single-select dropdown with an 'All' option prepended, instead of a
+    multiselect that shows every choice as a chip."""
+    choice = st.sidebar.selectbox(label, options=[ALL_OPTION] + list(options))
+    return list(options) if choice == ALL_OPTION else [choice]
+
+subjects = dropdown_filter("Subject", sorted(df["subject"].unique()))
+departments = dropdown_filter("Department (School)", sorted(df["department"].unique()))
+semesters = dropdown_filter("Semester", list(SEMESTER_LABELS.values()))
+risk_filter = dropdown_filter("Risk level", sorted(df["risk_flag"].unique()))
 
 filtered = df[
     df["subject"].isin(subjects) & df["department"].isin(departments) & df["risk_flag"].isin(risk_filter)
