@@ -1,10 +1,10 @@
-INFO:     Started server process [39137]
+INFO:     Started server process [43264]
 INFO:     Waiting for application startup.
-2026-09-07 02:33:25,385 | INFO | Loaded model 'random_forest' (registry v2)
+2026-09-07 03:54:25,252 | INFO | Loaded model 'random_forest' (registry v2)
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://127.0.0.1:8006 (Press CTRL+C to quit)
-INFO:     127.0.0.1:56333 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57222 - "GET /health HTTP/1.1" 200 OK
 INFO:     Shutting down
 INFO:     Waiting for application shutdown.
 INFO:     Application shutdown complete.
-INFO:     Finished server process [39137]
+INFO:     Finished server process [43264]

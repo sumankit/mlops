@@ -33,17 +33,32 @@ def load_data():
 
 df, subject_summary, dept_summary = load_data()
 
+# The UCI dataset's `school` code stands in for "department" here (GP / MS
+# are the two participating secondary schools); mapped to their real names
+# for readability. There's no native semester field either -- G1, G2, G3 are
+# the three periodic assessment checkpoints across the academic term, so
+# they're treated as "Semester 1 / 2 / Final" for the semester-wise view.
+DEPARTMENT_LABELS = {"GP": "Gabriel Pereira", "MS": "Mousinho da Silveira"}
+SEMESTER_LABELS = {"G1": "Semester 1", "G2": "Semester 2", "G3": "Semester 3 (Final)"}
+
+df["department"] = df["school"].map(DEPARTMENT_LABELS).fillna(df["school"])
+
 st.title("🎓 Student Performance & Dropout-Risk Dashboard")
 st.caption("Source: UCI Student Performance Dataset (Cortez, 2008) — Mathematics & Portuguese subjects")
 
 # --- Sidebar filters ---------------------------------------------------
 st.sidebar.header("Filters")
 subjects = st.sidebar.multiselect("Subject", options=df["subject"].unique(), default=list(df["subject"].unique()))
-schools = st.sidebar.multiselect("School", options=df["school"].unique(), default=list(df["school"].unique()))
+departments = st.sidebar.multiselect(
+    "Department (School)", options=df["department"].unique(), default=list(df["department"].unique())
+)
+semesters = st.sidebar.multiselect(
+    "Semester", options=list(SEMESTER_LABELS.values()), default=list(SEMESTER_LABELS.values())
+)
 risk_filter = st.sidebar.multiselect("Risk level", options=df["risk_flag"].unique(), default=list(df["risk_flag"].unique()))
 
 filtered = df[
-    df["subject"].isin(subjects) & df["school"].isin(schools) & df["risk_flag"].isin(risk_filter)
+    df["subject"].isin(subjects) & df["department"].isin(departments) & df["risk_flag"].isin(risk_filter)
 ]
 
 # --- KPI row -------------------------------------------------------
@@ -75,12 +90,26 @@ with col_a:
                   color_discrete_map={"Pass": "#2ca02c", "Fail": "#d62728"})
     st.plotly_chart(fig2, use_container_width=True)
 
-# --- View 3: Department (school) and subject performance -------------
+# --- View 3: Department and semester performance ----------------------
 with col_b:
-    st.subheader("3️⃣ School & Subject Performance")
+    st.subheader("3️⃣ Department & Semester Performance")
+    period_df = filtered.melt(
+        id_vars=["department"], value_vars=["G1", "G2", "G3"],
+        var_name="period", value_name="grade",
+    )
+    period_df["semester"] = period_df["period"].map(SEMESTER_LABELS)
+    period_df = period_df[period_df["semester"].isin(semesters)]
+    period_df["grade_percent"] = period_df["grade"] / 20 * 100
+
+    dept_semester_summary = (
+        period_df.groupby(["department", "semester"])["grade_percent"]
+        .mean().reset_index()
+    )
     fig3 = px.bar(
-        dept_summary, x="school", y="avg_final_grade_percent", color="subject",
-        barmode="group", labels={"avg_final_grade_percent": "Avg Final Grade %"},
+        dept_semester_summary, x="department", y="grade_percent", color="semester",
+        barmode="group",
+        category_orders={"semester": list(SEMESTER_LABELS.values())},
+        labels={"grade_percent": "Avg Grade %", "department": "Department"},
     )
     st.plotly_chart(fig3, use_container_width=True)
 
@@ -89,7 +118,7 @@ st.subheader("4️⃣ High-Risk Student List (Early Intervention Candidates)")
 high_risk = (
     filtered[filtered["risk_flag"] == "High Risk"]
     .sort_values("risk_score", ascending=False)
-    [["student_id", "subject", "school", "attendance_percentage", "final_grade_percent",
+    [["student_id", "subject", "department", "attendance_percentage", "final_grade_percent",
       "failures", "risk_score"]]
 )
 st.dataframe(high_risk, use_container_width=True, height=300)
@@ -105,14 +134,17 @@ pc1.metric("Attendance %", f"{profile['attendance_percentage']:.1f}%")
 pc2.metric("Final Grade %", f"{profile['final_grade_percent']:.1f}%")
 pc3.metric("Risk Level", profile["risk_flag"])
 
-st.write("**Grade trajectory (G1 → G2 → G3):**")
-trend_df = pd.DataFrame({"Assessment": ["G1", "G2", "G3"], "Grade": [profile["G1"], profile["G2"], profile["G3"]]})
-fig5 = px.line(trend_df, x="Assessment", y="Grade", markers=True, range_y=[0, 20])
+st.write("**Grade trajectory (Semester 1 → 2 → Final):**")
+trend_df = pd.DataFrame({
+    "Semester": list(SEMESTER_LABELS.values()),
+    "Grade": [profile["G1"], profile["G2"], profile["G3"]],
+})
+fig5 = px.line(trend_df, x="Semester", y="Grade", markers=True, range_y=[0, 20])
 st.plotly_chart(fig5, use_container_width=True)
 
 st.write("**Demographics & engagement:**")
 st.json({
-    "school": profile["school"], "sex": profile["sex"], "age": int(profile["age"]),
+    "department": profile["department"], "sex": profile["sex"], "age": int(profile["age"]),
     "address": profile["address"], "internet_access": profile["internet"],
     "study_time_scale_1to4": int(profile["studytime"]),
     "past_class_failures": int(profile["failures"]),
