@@ -60,3 +60,4 @@ timestamp,input_hash,prediction,probability,latency_ms,age,Medu,Fedu,traveltime,
 2026-09-06T02:19:18.248330,ed3c8d47fc00,Low Risk,0.2423,6.47,16,3,2,2,1,0,4,5,5,2,3,5,2,97.85,10.0,47.5,11,9,MS,M,R,GT3,T,services,other,father,no,no,no,no,yes,yes,yes,no,Portuguese
 2026-09-06T02:19:18.256486,bde077ee954d,Low Risk,0.1124,6.46,17,2,2,1,2,0,5,4,5,1,2,5,12,87.1,12.0,65.0,12,12,GP,F,U,GT3,T,other,other,mother,no,yes,no,no,no,yes,yes,no,Portuguese
 2026-09-06T02:19:18.264586,636e46682da6,High Risk,0.7583,6.44,16,4,3,1,2,0,3,4,3,2,3,3,10,89.25,8.5,65.0,9,8,GP,M,U,GT3,T,teacher,other,mother,no,yes,yes,yes,yes,yes,yes,no,Mathematics
+2026-09-07T03:49:06.434390,2b065faede19,High Risk,0.9395,56.83,17,2,2,1,2,1,4,3,4,2,3,3,12,87.1,8.5,55.0,8,9,GP,F,U,GT3,T,services,other,mother,no,yes,no,yes,yes,yes,yes,no,Mathematics
