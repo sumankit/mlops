@@ -65,6 +65,10 @@ filtered = df[
     df["subject"].isin(subjects) & df["department"].isin(departments) & df["risk_flag"].isin(risk_filter)
 ]
 
+if filtered.empty:
+    st.warning("⚠️ No records match the current filters. Select at least one option in each dropdown on the left.")
+    st.stop()
+
 # --- KPI row -------------------------------------------------------
 c1, c2, c3, c4 = st.columns(4)
 c1.metric("Total Records", len(filtered))
