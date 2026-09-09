@@ -91,3 +91,69 @@
 2026-09-07 02:31:31,787 | INFO | === Load complete -> /Users/ankit/Downloads/mlops/db/student_performance.db ===
 2026-09-07 02:31:31,787 | INFO | --- Task 'load_to_warehouse' SUCCEEDED in 0.03s ---
 2026-09-07 02:31:31,787 | INFO | ##### PIPELINE RUN END: overall=SUCCESS #####
+2026-09-09 11:16:28,855 | INFO | ##### PIPELINE RUN START: 2026-09-09T11:16:28.855364 #####
+2026-09-09 11:16:28,855 | INFO | --- Task 'ingest_extract' started (attempt 1/2) ---
+2026-09-09 11:16:28,855 | INFO | === Starting ingestion task ===
+2026-09-09 11:16:28,872 | INFO | Ingested mathematics: 395 rows -> /Users/ankit/Downloads/mlops/data/staging/mathematics_20260909_111628.csv
+2026-09-09 11:16:28,877 | INFO | Ingested portuguese: 649 rows -> /Users/ankit/Downloads/mlops/data/staging/portuguese_20260909_111628.csv
+2026-09-09 11:16:28,877 | INFO | === Ingestion complete: 2/2 sources succeeded ===
+2026-09-09 11:16:28,877 | INFO | --- Task 'ingest_extract' SUCCEEDED in 0.02s ---
+2026-09-09 11:16:28,877 | INFO | --- Task 'validate_and_clean' started (attempt 1/2) ---
+2026-09-09 11:16:28,877 | INFO | === Starting validation & cleaning task ===
+2026-09-09 11:16:28,878 | INFO | Validating mathematics: 395 staged rows from /Users/ankit/Downloads/mlops/data/staging/mathematics_20260909_111628.csv
+2026-09-09 11:16:28,895 | INFO | Cleaned mathematics: 395 valid rows -> /Users/ankit/Downloads/mlops/data/cleaned/mathematics_cleaned.csv
+2026-09-09 11:16:28,896 | INFO | Validating portuguese: 649 staged rows from /Users/ankit/Downloads/mlops/data/staging/portuguese_20260909_111628.csv
+2026-09-09 11:16:28,902 | INFO | Cleaned portuguese: 649 valid rows -> /Users/ankit/Downloads/mlops/data/cleaned/portuguese_cleaned.csv
+2026-09-09 11:16:28,902 | INFO | === Validation & cleaning complete ===
+2026-09-09 11:16:28,902 | INFO | --- Task 'validate_and_clean' SUCCEEDED in 0.02s ---
+2026-09-09 11:16:28,902 | INFO | --- Task 'transform_features' started (attempt 1/2) ---
+2026-09-09 11:16:28,902 | INFO | === Starting transformation task ===
+2026-09-09 11:16:28,914 | INFO | student_master: 1044 rows -> /Users/ankit/Downloads/mlops/data/analytics/student_master.csv
+2026-09-09 11:16:28,921 | INFO | subject_summary -> /Users/ankit/Downloads/mlops/data/analytics/subject_summary.csv
+2026-09-09 11:16:28,924 | INFO | department_summary -> /Users/ankit/Downloads/mlops/data/analytics/department_summary.csv
+2026-09-09 11:16:28,924 | INFO | === Transformation complete ===
+2026-09-09 11:16:28,924 | INFO | --- Task 'transform_features' SUCCEEDED in 0.02s ---
+2026-09-09 11:16:28,924 | INFO | --- Task 'load_to_warehouse' started (attempt 1/2) ---
+2026-09-09 11:16:28,924 | INFO | === Starting load task ===
+2026-09-09 11:16:28,957 | INFO | Loaded dim_student: 1044 rows
+2026-09-09 11:16:28,958 | INFO | Loaded fact_assessment: 1044 rows
+2026-09-09 11:16:28,958 | INFO | Loaded agg_subject_summary: 2 rows
+2026-09-09 11:16:28,958 | INFO | Loaded agg_department_summary: 4 rows
+2026-09-09 11:16:28,958 | INFO | === Load complete -> /Users/ankit/Downloads/mlops/db/student_performance.db ===
+2026-09-09 11:16:28,958 | INFO | --- Task 'load_to_warehouse' SUCCEEDED in 0.03s ---
+2026-09-09 11:16:28,958 | INFO | ##### PIPELINE RUN END: overall=SUCCESS #####
+2026-09-09 11:18:21,315 | INFO | === Starting ingestion task ===
+2026-09-09 11:18:21,321 | INFO | Ingested mathematics: 395 rows -> /Users/ankit/Downloads/mlops/data/staging/mathematics_20260909_111821.csv
+2026-09-09 11:18:21,325 | INFO | Ingested portuguese: 649 rows -> /Users/ankit/Downloads/mlops/data/staging/portuguese_20260909_111821.csv
+2026-09-09 11:18:21,326 | INFO | === Ingestion complete: 2/2 sources succeeded ===
+2026-09-09 13:28:17,745 | INFO | ##### PIPELINE RUN START: 2026-09-09T13:28:17.745136 #####
+2026-09-09 13:28:17,745 | INFO | --- Task 'ingest_extract' started (attempt 1/2) ---
+2026-09-09 13:28:17,745 | INFO | === Starting ingestion task ===
+2026-09-09 13:28:17,751 | INFO | Ingested mathematics: 395 rows -> /Users/ankit/Downloads/mlops/data/staging/mathematics_20260909_132817.csv
+2026-09-09 13:28:17,756 | INFO | Ingested portuguese: 649 rows -> /Users/ankit/Downloads/mlops/data/staging/portuguese_20260909_132817.csv
+2026-09-09 13:28:17,756 | INFO | === Ingestion complete: 2/2 sources succeeded ===
+2026-09-09 13:28:17,756 | INFO | --- Task 'ingest_extract' SUCCEEDED in 0.01s ---
+2026-09-09 13:28:17,756 | INFO | --- Task 'validate_and_clean' started (attempt 1/2) ---
+2026-09-09 13:28:17,756 | INFO | === Starting validation & cleaning task ===
+2026-09-09 13:28:17,757 | INFO | Validating mathematics: 395 staged rows from /Users/ankit/Downloads/mlops/data/staging/mathematics_20260909_132817.csv
+2026-09-09 13:28:17,764 | INFO | Cleaned mathematics: 395 valid rows -> /Users/ankit/Downloads/mlops/data/cleaned/mathematics_cleaned.csv
+2026-09-09 13:28:17,765 | INFO | Validating portuguese: 649 staged rows from /Users/ankit/Downloads/mlops/data/staging/portuguese_20260909_132817.csv
+2026-09-09 13:28:17,770 | INFO | Cleaned portuguese: 649 valid rows -> /Users/ankit/Downloads/mlops/data/cleaned/portuguese_cleaned.csv
+2026-09-09 13:28:17,770 | INFO | === Validation & cleaning complete ===
+2026-09-09 13:28:17,770 | INFO | --- Task 'validate_and_clean' SUCCEEDED in 0.01s ---
+2026-09-09 13:28:17,770 | INFO | --- Task 'transform_features' started (attempt 1/2) ---
+2026-09-09 13:28:17,770 | INFO | === Starting transformation task ===
+2026-09-09 13:28:17,780 | INFO | student_master: 1044 rows -> /Users/ankit/Downloads/mlops/data/analytics/student_master.csv
+2026-09-09 13:28:17,784 | INFO | subject_summary -> /Users/ankit/Downloads/mlops/data/analytics/subject_summary.csv
+2026-09-09 13:28:17,787 | INFO | department_summary -> /Users/ankit/Downloads/mlops/data/analytics/department_summary.csv
+2026-09-09 13:28:17,787 | INFO | === Transformation complete ===
+2026-09-09 13:28:17,787 | INFO | --- Task 'transform_features' SUCCEEDED in 0.02s ---
+2026-09-09 13:28:17,787 | INFO | --- Task 'load_to_warehouse' started (attempt 1/2) ---
+2026-09-09 13:28:17,787 | INFO | === Starting load task ===
+2026-09-09 13:28:17,813 | INFO | Loaded dim_student: 1044 rows
+2026-09-09 13:28:17,813 | INFO | Loaded fact_assessment: 1044 rows
+2026-09-09 13:28:17,813 | INFO | Loaded agg_subject_summary: 2 rows
+2026-09-09 13:28:17,813 | INFO | Loaded agg_department_summary: 4 rows
+2026-09-09 13:28:17,813 | INFO | === Load complete -> /Users/ankit/Downloads/mlops/db/student_performance.db ===
+2026-09-09 13:28:17,814 | INFO | --- Task 'load_to_warehouse' SUCCEEDED in 0.03s ---
+2026-09-09 13:28:17,814 | INFO | ##### PIPELINE RUN END: overall=SUCCESS #####
