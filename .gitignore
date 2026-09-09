@@ -10,3 +10,5 @@ mlruns/
 mlflow.db
 .dvc/cache/
 .dvc/tmp/
+venv_airflow/
+.airflow_home/

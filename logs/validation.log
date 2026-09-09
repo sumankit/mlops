@@ -1,0 +1,6 @@
+2026-09-09 11:18:21,555 | INFO | === Starting validation & cleaning task ===
+2026-09-09 11:18:21,557 | INFO | Validating mathematics: 395 staged rows from /Users/ankit/Downloads/mlops/data/staging/mathematics_20260909_111821.csv
+2026-09-09 11:18:21,562 | INFO | Cleaned mathematics: 395 valid rows -> /Users/ankit/Downloads/mlops/data/cleaned/mathematics_cleaned.csv
+2026-09-09 11:18:21,564 | INFO | Validating portuguese: 649 staged rows from /Users/ankit/Downloads/mlops/data/staging/portuguese_20260909_111821.csv
+2026-09-09 11:18:21,568 | INFO | Cleaned portuguese: 649 valid rows -> /Users/ankit/Downloads/mlops/data/cleaned/portuguese_cleaned.csv
+2026-09-09 11:18:21,569 | INFO | === Validation & cleaning complete ===

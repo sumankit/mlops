@@ -1,0 +1,6 @@
+2026-09-09 11:18:22,080 | INFO | === Starting load task ===
+2026-09-09 11:18:22,107 | INFO | Loaded dim_student: 1044 rows
+2026-09-09 11:18:22,107 | INFO | Loaded fact_assessment: 1044 rows
+2026-09-09 11:18:22,107 | INFO | Loaded agg_subject_summary: 2 rows
+2026-09-09 11:18:22,107 | INFO | Loaded agg_department_summary: 4 rows
+2026-09-09 11:18:22,107 | INFO | === Load complete -> /Users/ankit/Downloads/mlops/db/student_performance.db ===
