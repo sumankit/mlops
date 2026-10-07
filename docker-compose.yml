@@ -1,0 +1,21 @@
+services:
+  api:
+    build: .
+    image: student-risk-api
+    container_name: student-risk-api
+    ports:
+      # Host port 8003 avoids clashing with other projects' containers that
+      # also bind 8000. Change the left-hand number if 8003 is taken too.
+      - "8003:8000"
+    volumes:
+      # Mount logs/ from the host so prediction_log.csv (written by
+      # api/main.py on every /predict call) persists outside the container
+      # and stays readable by monitoring/monitor.py running on the host.
+      - ./logs:/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
