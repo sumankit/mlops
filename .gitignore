@@ -12,3 +12,8 @@ mlflow.db
 .dvc/tmp/
 venv_airflow/
 .airflow_home/
+logs/
+data/staging/
+data/cleaned/
+monitoring/reports/
+ml/models/model_info.json
